@@ -21,9 +21,10 @@ namespace ChatServer.Chat
             try
             {
                 Console.WriteLine("Server Iniciado");
-                IPHostEntry host = Dns.GetHostEntry("localhost");
-                IPAddress addr = host.AddressList[0];
-                IPEndPoint endPoint = new IPEndPoint(addr, 4404);
+                //IPHostEntry host = Dns.GetHostEntry("localhost");
+                //IPAddress addr = host.AddressList[0];
+
+                IPEndPoint endPoint = new IPEndPoint(System.Net.IPAddress.Any, 4404);
 
                 socket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 socket.Bind(endPoint);
