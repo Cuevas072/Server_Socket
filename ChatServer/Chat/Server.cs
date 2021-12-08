@@ -10,7 +10,7 @@ using System.Text;
 
 namespace ChatServer.Chat
 {
-    class Server
+    class Server:IServer 
     {
         Socket socket;
         Thread listenThread;
@@ -73,7 +73,7 @@ namespace ChatServer.Chat
             } while (!(received is User));
 
             this.usersTable.Add(received, client);
-            this.BroadCast(received);
+            this.notify(received);
             this.SendAllUsers(client);
             x = (User)received;
             Console.WriteLine("Se conecto a: " + x.nick);
@@ -92,7 +92,7 @@ namespace ChatServer.Chat
         /// Envia un objeto a todos los usuarios conectados
         /// </summary>
         /// <param name="o">Objeto a Enviar </param>
-        private void BroadCast(object o)
+        public void notify(object o)
         {
             foreach (DictionaryEntry d in this.usersTable) 
             {

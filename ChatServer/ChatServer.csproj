@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chat\IServer.cs" />
     <Compile Include="Chat\Message.cs" />
     <Compile Include="Chat\Serialization.cs" />
     <Compile Include="Chat\Server.cs" />
